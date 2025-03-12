@@ -1,0 +1,40 @@
+Analisis Hasil
+
+1. Performa Agen dalam Mengontrol Environment CartPole
+- Agen menunjukkan peningkatan performa seiring dengan pelatihan, dengan skor yang meningkat dari awal hingga mencapai skor tinggi yang lebih stabil.  
+- Dengan eksplorasi yang cukup pada awal pelatihan (epsilon tinggi) dan eksploitasi setelahnya (epsilon rendah), agen dapat mempelajari kebijakan yang lebih optimal untuk menjaga keseimbangan tiang pada kereta.  
+- Jika agen sudah terlatih dengan baik, saat pengujian (epsilon rendah), seharusnya ia mampu mempertahankan tiang dalam keseimbangan lebih lama.  
+
+2. Pengaruh Perubahan Parameter terhadap Kinerja Agen 
+- Gamma (discount factor):  
+  - Gamma tinggi (~0.99) membuat agen lebih memperhatikan reward jangka panjang, yang cocok untuk tugas seperti CartPole.  
+  - Gamma terlalu rendah (~0.5) membuat agen lebih fokus pada reward jangka pendek, yang dapat menyebabkan perilaku suboptimal.  
+- Epsilon (exploration rate):  
+  - Nilai awal epsilon tinggi (1.0) memungkinkan eksplorasi luas, tetapi perlu diturunkan secara bertahap untuk menghindari tindakan acak yang tidak efektif.  
+  - Epsilon yang menurun terlalu cepat menyebabkan eksplorasi tidak cukup, sedangkan terlalu lambat memperlambat proses belajar.  
+- Learning rate:  
+  - Nilai optimal (0.001) memberikan keseimbangan antara kecepatan konvergensi dan kestabilan pelatihan.  
+  - Learning rate yang terlalu tinggi membuat pelatihan tidak stabil, sedangkan terlalu rendah menyebabkan pelatihan lambat.  
+
+3. Tantangan dalam Pelatihan Agen RL
+- Ketidakstabilan pembelajaran: Karena DQN memperbarui nilai Q berdasarkan estimasi sendiri, pembelajaran bisa menjadi tidak stabil.  
+- Eksplorasi yang tidak optimal: Jika epsilon decay tidak diatur dengan baik, agen bisa gagal menemukan strategi optimal.  
+- Overfitting pada lingkungan tertentu: Agen bisa sangat baik dalam satu environment tetapi buruk dalam generalisasi ke environment lain.  
+
+
+Diskusi
+
+1. Perbedaan antara Reinforcement Learning dan Supervised Learning dalam Sistem Kendali
+- Supervised Learning membutuhkan data berlabel untuk pelatihan, sedangkan Reinforcement Learning belajar melalui interaksi dengan lingkungan tanpa label eksplisit.  
+- RL lebih cocok untuk tugas kendali karena dapat menyesuaikan strategi berdasarkan umpan balik dari lingkungan tanpa perlu dataset berlabel.  
+
+2. Optimasi Strategi Eksplorasi dan Eksploitasi dalam RL 
+- Menggunakan Epsilon-Greedy Decay: Memulai dengan eksplorasi tinggi dan secara bertahap meningkatkan eksploitasi.  
+- Menggunakan Upper Confidence Bound (UCB): Mengutamakan tindakan yang memiliki nilai ketidakpastian tinggi untuk eksplorasi yang lebih cerdas.  
+- Menggunakan strategi Boltzmann Exploration: Memilih tindakan berdasarkan probabilitas yang bergantung pada nilai Q, bukan hanya nilai maksimum.  
+
+3. Potensi Aplikasi RL dalam Sistem Kendali Nyata  
+- Robotika: RL digunakan untuk mengontrol gerakan robot secara optimal dalam berbagai skenario.  
+- Kendaraan Otonom: RL dapat digunakan untuk navigasi dan pengambilan keputusan dalam mobil tanpa pengemudi.  
+- Sistem Manajemen Energi: RL digunakan untuk mengoptimalkan penggunaan energi di gedung pintar dan jaringan listrik.  
+- Trading Saham: Agen RL digunakan untuk mempelajari strategi optimal dalam perdagangan saham dan kripto.
